@@ -9,7 +9,10 @@
 
 <body>
 
-    <h1>Selamat Datang, <?= $_POST["nama"] ?></h1>
+    <?php if (isset($_POST["nama"])): ?>
+        <h1>Selamat Datang, <?= $_POST["nama"] ?></h1>
+    <?php endif ?>
+
 
     <form action="" method="post">
         Masukkan Nama :
