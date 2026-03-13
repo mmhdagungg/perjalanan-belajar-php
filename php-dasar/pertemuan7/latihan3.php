@@ -8,13 +8,10 @@
 </head>
 
 <body>
+    
+    <h1>Selamat Datang, <?= $_POST["nama"] ?></h1>
 
-    <?php if (isset($_POST["nama"])): ?>
-        <h1>Selamat Datang, <?= $_POST["nama"] ?></h1>
-    <?php endif ?>
-
-
-    <form action="" method="post">
+    <form action="latihan4.php" method="post">
         Masukkan Nama :
         <input type="text" name="nama">
         <br>
