@@ -7,23 +7,23 @@ $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
 // var_dump($result);
 
 // ambil data (fetch) mahasiswa dari object result
-// mysqli_fecth_row() mengembalikan array numeric
-// mysqli_fecth_assoc() mengembalikan array assoc
-// mysqli_fecth_array() 
+// mysqli_fecth_row()
+// mysqli_fecth_assoc()
+// mysqli_fecth_array()
 // mysqli_fecth_object()
 
-// while ($mhs = mysqli_fetch_assoc($result)) {
-
-//     var_dump($mhs);
-// }
+$mhs = mysqli_fetch_row($result);
+var_dump($mhs)
 
 
-// foreach ($result as $r) {
+    // mysqli_fecth_assoc()
+
+    // foreach ($result as $r) {
 //     var_dump($r);
 // }
 
 
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,29 +43,23 @@ $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
             <th>No.</th>
             <th>Aksi</th>
             <th>Gambar</th>
-            <th>NPM</th>
-            <th>Jurusan</th>
+            <th>NRP</th>
             <th>Nama</th>
             <th>Email</th>
         </tr>
-        <?php $i = 1; ?>
-        <?php while ($row = mysqli_fetch_assoc($result)): ?>
-            <tr>
-                <td><?= $i; ?></td>
-                <td>
-                    <a href="">Ubah</a> |
-                    <a href="">Hapus</a>
-                </td>
-                <td>
-                    <img src="img\<?php $row["gambar"] ?>" alt="" width=110px;>
-                </td>
-                <td><?= $row["npm"]; ?></td>
-                <td><?= $row["jurusan"]; ?></td>
-                <td><?= $row["nama"]; ?></td>
-                <td><?= $row["email"]; ?></td>
-            </tr>
-            <?php $i++; ?>
-        <?php endwhile ?>
+        <tr>
+            <td>1</td>
+            <td>
+                <a href="">Ubah</a> |
+                <a href="">Hapus</a>
+            </td>
+            <td>
+                <img src="../img/agung.png" alt="" width=110px;>
+            </td>
+            <td>1402021084</td>
+            <td>Moehammad Agung</td>
+            <td>mmhdagung7@gmai.com</td>
+        </tr>
     </table>
 </body>
 

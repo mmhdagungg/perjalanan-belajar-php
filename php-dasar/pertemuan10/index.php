@@ -1,28 +1,8 @@
 <?php
-// koneksi database
-$conn = mysqli_connect("localhost", "root", "", "phpdasar");
 
-// ambil data mahasiswa
-$result = mysqli_query($conn, "SELECT * FROM mahasiswa");
-// var_dump($result);
+require 'functions.php';
 
-// ambil data (fetch) mahasiswa dari object result
-// mysqli_fecth_row() mengembalikan array numeric
-// mysqli_fecth_assoc() mengembalikan array assoc
-// mysqli_fecth_array() 
-// mysqli_fecth_object()
-
-// while ($mhs = mysqli_fetch_assoc($result)) {
-
-//     var_dump($mhs);
-// }
-
-
-// foreach ($result as $r) {
-//     var_dump($r);
-// }
-
-
+$mahasiswa = query("SELECT * FROM mahasiswa");
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +16,8 @@ $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
 
 <body>
     <h1>Daftar Mahasiswa</h1>
+    <a href="tambah.php">Tambah Data Mahasiswa</a>
+    <br>
 
 
     <table border="1" cellpading="15" cellspacing="0">
@@ -49,23 +31,33 @@ $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
             <th>Email</th>
         </tr>
         <?php $i = 1; ?>
-        <?php while ($row = mysqli_fetch_assoc($result)): ?>
+        <?php foreach ($mahasiswa as $row): ?>
             <tr>
-                <td><?= $i; ?></td>
+                <td>
+                    <?= $i; ?>
+                </td>
                 <td>
                     <a href="">Ubah</a> |
-                    <a href="">Hapus</a>
+                    <a href="hapus.php?id=<?= $row["id"] ?>">Hapus</a>
                 </td>
                 <td>
-                    <img src="img\<?php $row["gambar"] ?>" alt="" width=110px;>
+                    <img src="img/<?php echo $row["gambar"] ?>" alt="" width=110px>
                 </td>
-                <td><?= $row["npm"]; ?></td>
-                <td><?= $row["jurusan"]; ?></td>
-                <td><?= $row["nama"]; ?></td>
-                <td><?= $row["email"]; ?></td>
+                <td>
+                    <?= $row["npm"]; ?>
+                </td>
+                <td>
+                    <?= $row["jurusan"]; ?>
+                </td>
+                <td>
+                    <?= $row["nama"]; ?>
+                </td>
+                <td>
+                    <?= $row["email"]; ?>
+                </td>
             </tr>
             <?php $i++; ?>
-        <?php endwhile ?>
+        <?php endforeach ?>
     </table>
 </body>
 
