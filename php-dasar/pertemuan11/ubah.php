@@ -47,6 +47,7 @@ if (isset($_POST["submit"])) {
     <form action="" method="post">
 
         <ul>
+            <input type="hidden" name="id" , value="<?= $mhs["id"] ?>">
             <li>
                 <label for="npm">NPM : </label>
                 <input type="text" name="npm" id="npm" required value="<?= $mhs["npm"] ?>">
